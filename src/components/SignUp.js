@@ -20,9 +20,24 @@ class SignUp extends React.Component{
             username:"",
             password:""
         }
-
     }
 
+
+    onChangeEmail = (e) => {
+        console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value})
+    }
+
+
+    onChangeUsername = (e) => {
+        console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value})
+    }
+
+    onChangePassword = (e) => {
+        console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value})
+    }
 
     render() {
         const { classes } = this.props
@@ -44,6 +59,8 @@ class SignUp extends React.Component{
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    onChange={this.onChangeEmail}
+
                                 />
                             </Grid>
 
@@ -57,6 +74,7 @@ class SignUp extends React.Component{
                                     type="username"
                                     id="username"
                                     autoComplete="username"
+                                    onChange={this.onChangeUsername}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -69,6 +87,7 @@ class SignUp extends React.Component{
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
+                                    onChange={this.onChangePassword}
                                 />
                             </Grid>
                         </Grid>
