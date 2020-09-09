@@ -11,6 +11,19 @@ import Container from '@material-ui/core/Container';
 
 
 class SignUp extends React.Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email:"",
+            username:"",
+            password:""
+        }
+
+    }
+
+
     render() {
         const { classes } = this.props
         return (

@@ -2,15 +2,19 @@ import React from 'react';
 import './App.css';
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
+import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-        <SignUp>
-        </SignUp>
-        {/*<SignIn>*/}
+        <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={SignIn}/>
+            <Route exact path="/signup" component={SignUp}/>
+            <Route exact path="/signin" component={SignIn}/>
 
-        {/*</SignIn>*/}
+        </Switch>
+        </BrowserRouter>
     </div>
   );
 }
