@@ -8,6 +8,9 @@ function App() {
     <div className="App">
         <SignUp>
         </SignUp>
+        {/*<SignIn>*/}
+
+        {/*</SignIn>*/}
     </div>
   );
 }
