@@ -15,7 +15,31 @@ import Container from '@material-ui/core/Container';
 
 
 
-class SignIn extends React.Component{
+class SignIn extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email:"",
+            password:""
+        }
+    }
+
+    onChangeEmail = (e) => {
+        // console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    onChangePassword = (e) => {
+        // console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+    }
 
     render() {
         const { classes } = this.props
@@ -29,7 +53,7 @@ class SignIn extends React.Component{
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form} noValidate onSubmit={this.onSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -40,6 +64,7 @@ class SignIn extends React.Component{
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            onChange={this.onChangeEmail}
                         />
                         <TextField
                             variant="outlined"
@@ -51,6 +76,7 @@ class SignIn extends React.Component{
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={this.onChangePassword}
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary"/>}
