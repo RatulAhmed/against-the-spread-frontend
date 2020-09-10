@@ -24,19 +24,24 @@ class SignUp extends React.Component{
 
 
     onChangeEmail = (e) => {
-        console.log(e.target.value)
-        this.setState({[e.target.name]:e.target.value})
+        // console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value});
     }
 
 
     onChangeUsername = (e) => {
-        console.log(e.target.value)
-        this.setState({[e.target.name]:e.target.value})
+        // console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value});
     }
 
     onChangePassword = (e) => {
-        console.log(e.target.value)
-        this.setState({[e.target.name]:e.target.value})
+        // console.log(e.target.value)
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
     }
 
     render() {
@@ -48,7 +53,7 @@ class SignUp extends React.Component{
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form} noValidate onSubmit={this.onSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField
@@ -91,18 +96,18 @@ class SignUp extends React.Component{
                                 />
                             </Grid>
                         </Grid>
-                        <Button
+                        <button
                             type="submit"
-                            fullWidth
+                            // fullWidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
                         >
                             Sign Up
-                        </Button>
+                        </button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/signin" variant="body2">
                                     Already have an account? Sign in
                                 </Link>
                             </Grid>
