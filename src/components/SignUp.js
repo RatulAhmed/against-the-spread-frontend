@@ -96,15 +96,15 @@ class SignUp extends React.Component{
                                 />
                             </Grid>
                         </Grid>
-                        <button
+                        <Button
                             type="submit"
-                            // fullWidth
+                            fullWidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
                         >
                             Sign Up
-                        </button>
+                        </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
                                 <Link href="/signin" variant="body2">
