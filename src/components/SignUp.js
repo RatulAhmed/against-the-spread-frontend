@@ -8,7 +8,9 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import connect from "react-redux/lib/connect/connect";
+import {userSignupRequest} from "../actions/signupActions";
+import PropTypes from 'prop-types';
 
 class SignUp extends React.Component{
 
@@ -21,7 +23,6 @@ class SignUp extends React.Component{
             password:""
         }
     }
-
 
     onChangeEmail = (e) => {
         // console.log(e.target.value)
@@ -41,11 +42,11 @@ class SignUp extends React.Component{
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.userSignupRequest(this.state);
     }
 
     render() {
-        const { classes } = this.props
+        const { classes} = this.props
         return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline/>
@@ -121,6 +122,10 @@ class SignUp extends React.Component{
     }
 }
 
+SignUp.propTypes = {
+    userSignupRequest: PropTypes.func.isRequired
+}
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -142,5 +147,4 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-export default withStyles(useStyles)(SignUp)
+export default connect(null, userSignupRequest)(SignUp)(withStyles(useStyles)(SignUp))
