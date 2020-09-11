@@ -12,8 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-
+import axios from 'axios';
+import history from "../history";
 
 class SignIn extends React.Component {
 
@@ -21,12 +21,12 @@ class SignIn extends React.Component {
         super(props);
 
         this.state = {
-            email:"",
+            username:"",
             password:""
         }
     }
 
-    onChangeEmail = (e) => {
+    onChangeUsername = (e) => {
         // console.log(e.target.value)
         this.setState({[e.target.name]:e.target.value});
     }
@@ -39,6 +39,12 @@ class SignIn extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
+        axios.post("http://localhost:8080/authenticate", this.state).then(res => {
+            const token = res.data;
+            console.log(token);
+        })
+
+        history.push("/dashboard")
     }
 
     render() {
@@ -59,12 +65,12 @@ class SignIn extends React.Component {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
-                            onChange={this.onChangeEmail}
+                            onChange={this.onChangeUsername}
                         />
                         <TextField
                             variant="outlined"
