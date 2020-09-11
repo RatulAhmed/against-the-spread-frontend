@@ -1,11 +1,9 @@
-
+import React from 'react';
 
 class Dashboard extends React.Component {
-
-
     render() {
         return (
-                <p>successfully logged in.....</p>
+                <h1>successfully logged in.....</h1>
         );
     }
 }

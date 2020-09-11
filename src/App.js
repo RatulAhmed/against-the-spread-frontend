@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
+import Dashboard from "./components/Dashboard"
 import {BrowserRouter, Route, Switch, HashRouter, Router} from "react-router-dom";
 import { Provider } from 'react-redux';
 import {applyMiddleware, createStore} from "redux";
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/" component={SignIn}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/signin" component={SignIn}/>
+            <Route exac path="/dashboard" component={Dashboard}/>
         </Switch>
         </Router>
         </Provider>
