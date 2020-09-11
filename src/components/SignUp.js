@@ -42,7 +42,6 @@ class SignUp extends React.Component{
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.userSignupRequest(this.state);
     }
 
     render() {
@@ -147,4 +146,4 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default connect(null, userSignupRequest)(SignUp)(withStyles(useStyles)(SignUp))
+export default (withStyles(useStyles)(SignUp))
