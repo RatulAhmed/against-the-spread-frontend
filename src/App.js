@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
-import { BrowserRouter, Route, Switch, HashRouter } from "react-router-dom";
+import {BrowserRouter, Route, Switch, HashRouter, Router} from "react-router-dom";
 import { Provider } from 'react-redux';
 import {applyMiddleware, createStore} from "redux";
 import thunk from "redux-thunk";
-import {userSignupRequest} from "./actions/signupActions";
-import PropTypes from 'prop-types';
+import history from './history';
+
 
 const store = createStore(
     (state = {}) => state,
@@ -18,13 +18,13 @@ function App() {
   return (
     <div className="App">
         <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
         <Switch>
             <Route exact path="/" component={SignIn}/>
-            <Route exact path="/signup" render={()=><SignUp userSignupRequest={userSignupRequest}/>}/>
+            <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/signin" component={SignIn}/>
         </Switch>
-        </BrowserRouter>
+        </Router>
         </Provider>
 
     </div>

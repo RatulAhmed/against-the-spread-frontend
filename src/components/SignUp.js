@@ -8,9 +8,9 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import connect from "react-redux/lib/connect/connect";
-import {userSignupRequest} from "../actions/signupActions";
 import PropTypes from 'prop-types';
+import axios from "axios";
+import history from "../history";
 
 class SignUp extends React.Component{
 
@@ -42,6 +42,8 @@ class SignUp extends React.Component{
 
     onSubmit = (e) => {
         e.preventDefault();
+        axios.post("http://localhost:8080/signup", this.state)
+        history.push("/")
     }
 
     render() {
