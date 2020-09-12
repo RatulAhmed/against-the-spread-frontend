@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
 import axios from "axios";
 import history from "../history";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
 class SignUp extends React.Component{
 
@@ -52,6 +53,7 @@ class SignUp extends React.Component{
             <Container component="main" maxWidth="xs">
                 <CssBaseline/>
                 <div className={classes.paper}>
+                    <LockOutlinedIcon/>
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
