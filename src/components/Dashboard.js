@@ -33,15 +33,15 @@ class Dashboard extends React.Component {
     }
 
     render() {
+
         const {oddsData} = this.state
         return (
+
             <Table>
                 <thead>
                 <tr>
-                    <th>Away</th>
-                    <th>Away Spread</th>
-                    <th>Home</th>
-                    <th>Home Spread</th>
+                    <th></th>
+                    <th>Point Spread</th>
 
                 </tr>
                 </thead>
@@ -49,10 +49,26 @@ class Dashboard extends React.Component {
                 {oddsData.length ?
                     oddsData.map(oddsData => (
                         <tr>
-                            <td>{oddsData.awayTeam}</td>
-                            <td>{oddsData.awaySpread}</td>
-                            <td>{oddsData.homeTeam}</td>
-                            <td>{oddsData.homeSpread}</td>
+                            <td>
+                                <pre>
+                                    {oddsData.awayTeam}
+                                    </pre>
+                                    <pre>
+                                    {oddsData.homeTeam}
+                                    </pre>
+                            </td>
+                            <td>
+                                <pre>
+                                    <Button color={"primary"} variant={"outlined"}>
+                                {oddsData.awaySpread}
+                                    </Button>
+                                </pre>
+                                <pre>
+                                <Button color={"primary"} variant={"outlined"}>
+                                {oddsData.homeSpread}
+                                </Button>
+                                </pre>
+                                </td>
                         </tr>
                     ))
                     :
