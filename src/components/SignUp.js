@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import axios from "axios";
 import history from "../history";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import userSignupRequest from "../actions/signupActions"
 
 class SignUp extends React.Component{
 
@@ -43,7 +44,7 @@ class SignUp extends React.Component{
 
     onSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/signup", this.state)
+        userSignupRequest(this.state)
         history.push("/")
     }
 

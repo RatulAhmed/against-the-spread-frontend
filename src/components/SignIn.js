@@ -1,5 +1,4 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -12,8 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
-import history from "../history";
+import login from "../actions/authActions"
 
 class SignIn extends React.Component {
 
@@ -38,13 +36,7 @@ class SignIn extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        axios.post("http://localhost:8080/authenticate", this.state).then(res => {
-            const token = res.data;
-            console.log(token);
-        })
-
-        history.push("/dashboard")
+        login(this.state)
     }
 
     render() {
@@ -102,7 +94,7 @@ class SignIn extends React.Component {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/signup" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
