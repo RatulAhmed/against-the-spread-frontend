@@ -4,7 +4,7 @@ import history from "../history";
 import Button from "@material-ui/core/Button";
 import Table from "@material-ui/core/Table";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Grid, TableContainer, TableRow} from "@material-ui/core";
+import {Grid, TableBody, TableContainer, TableRow} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import TableHead from "@material-ui/core/TableHead";
@@ -44,19 +44,19 @@ class Dashboard extends React.Component {
             <Grid container spacing={3} justify={"center"}>
                 <Grid item xs={6}>
             <TableContainer component={Paper}>
-            <Table size={"small"}>
+            <Table size={"small"} style={{ width: 1200 }}>
                 <TableHead>
                 <TableRow>
-                    <TableCell align={"center"}>Team</TableCell>
+                    <TableCell align={"left"}>Team</TableCell>
                     <TableCell align={"left"}>Point Spread</TableCell>
 
                 </TableRow>
                 </TableHead>
-                <tbody>
+                <TableBody>
                 {oddsData.length ?
                     oddsData.map(oddsData => (
                         <TableRow>
-                            <TableCell align={"center"}>
+                            <TableCell align={"left"}>
                                 <pre>
                                 <Typography component="h1" variant="h5">
                                     {oddsData.awayTeam}
@@ -68,7 +68,7 @@ class Dashboard extends React.Component {
                                 </Typography>
                                     </pre>
                             </TableCell>
-                            <TableCell>
+                            <TableCell align={"left"}>
                                 <pre>
                                     <Button color={"primary"} variant={"outlined"}>
                                 {oddsData.awaySpread}
@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
                         <td>-</td>
                     </tr>)
                 }
-                </tbody>
+                </TableBody>
             </Table>
             </TableContainer>
             </Grid>
